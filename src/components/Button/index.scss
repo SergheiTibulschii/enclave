@@ -2,18 +2,19 @@
 @import '../../assets/css/colors';
 
 .enc-btn {
-  @include font-base();
   all: unset;
   font: inherit;
+  @include font-base();
+
   min-width: 160px;
   padding: 12px 18px;
   border-radius: 48px;
   cursor: pointer;
-  text-align: center;
+  text-align: center !important;
 
   transition: background 0.2s ease-out;
   background: rgba($color-primary-a, 1);
-  color: rgba($color-primary-b, 1);
+  color: rgba($color-primary-b, 1) !important;
 
   &:hover, &:focus {
     background: rgba($color-accent, 1);
