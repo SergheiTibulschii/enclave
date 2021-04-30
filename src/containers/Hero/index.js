@@ -41,7 +41,7 @@ const Index = () => {
       .play();
 
     gsap.from(figureRef.current, {
-      transform: "translateY(80px)",
+      transform: "translateY(80px) scale(0.5)",
       opacity: 0,
       duration: 2.5,
       ease: "expo.out",
@@ -49,7 +49,7 @@ const Index = () => {
     gsap.from(titleRef.current, {
       transform: "translateY(-40px)",
       opacity: 0,
-      duration: 5,
+      duration: 3,
       ease: "expo.out",
     });
   }, []);

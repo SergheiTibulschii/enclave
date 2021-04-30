@@ -1,12 +1,24 @@
-import React, { memo } from 'react'
+import React, {memo, useEffect, useRef} from 'react'
+import gsap from 'gsap'
+
 import './index.scss'
 import Logo from "../../components/Logo";
 import Button from "../../components/Button";
 
 const Navbar = () => {
+    const navRef = useRef()
+
+    useEffect(() => {
+          gsap.from(navRef.current, {
+              transform: "translateY(-40px)",
+              opacity: 0,
+              duration: 3,
+              ease: "expo.out",
+          })
+    }, [])
 
     return (
-        <div className='enc-navbar'>
+        <div ref={navRef} className='enc-navbar'>
             <Logo />
             <Button text='Request the app' />
         </div>

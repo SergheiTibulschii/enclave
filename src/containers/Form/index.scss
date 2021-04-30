@@ -18,10 +18,10 @@
   &__title {
     width: 760px;
     text-align: center;
-    @include font-lg()
+    @include font-lg(bold)
   }
   &__controls {
-    margin-top: 32px;
+    margin-top: 64px;
     display: inline-grid;
     grid-template-columns: 1fr auto;
     grid-gap: 16px;
