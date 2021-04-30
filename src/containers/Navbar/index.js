@@ -10,7 +10,7 @@ const Navbar = () => {
 
     useEffect(() => {
           gsap.from(navRef.current, {
-              transform: "translateY(-40px)",
+              transform: "translateY(-80px)",
               opacity: 0,
               duration: 3,
               ease: "expo.out",

@@ -47,7 +47,7 @@ const Index = () => {
       ease: "expo.out",
     });
     gsap.from(titleRef.current, {
-      transform: "translateY(-40px)",
+      transform: "translateY(-80px)",
       opacity: 0,
       duration: 3,
       ease: "expo.out",
