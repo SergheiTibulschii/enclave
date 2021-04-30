@@ -1,0 +1,30 @@
+@import '../../assets/css/mixins';
+@import '../../assets/css/colors';
+
+.enc-btn {
+  @include font-base();
+  all: unset;
+  font: inherit;
+  min-width: 160px;
+  padding: 12px 18px;
+  border-radius: 48px;
+  cursor: pointer;
+  text-align: center;
+
+  transition: background 0.2s ease-out;
+  background: rgba($color-primary-a, 1);
+  color: rgba($color-primary-b, 1);
+
+  &:hover, &:focus {
+    background: rgba($color-accent, 1);
+  }
+
+  &:active {
+    background: rgba($color-accent-variant, 1);
+  }
+
+  &:disabled {
+    background: rgba($color-secondary-variant, 1);
+    cursor: default;
+  }
+}

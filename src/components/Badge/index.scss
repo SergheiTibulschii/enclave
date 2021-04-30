@@ -1,0 +1,15 @@
+@import'../../assets/css/font';
+@import'../../assets/css/colors';
+
+.enc-badge {
+  font-size: $text-sm;
+  line-height: 16px;
+  color: rgba($color-primary-b, 1);
+
+  display: inline-block;
+  text-align: center;
+  padding: 2px 8px;
+
+  background: rgba($color-accent-secondary, 1);
+  border-radius: 24px;
+}

@@ -1,0 +1,9 @@
+.enc-logo {
+  position: relative;
+
+  &__badge {
+    position: absolute;
+    left: 100%;
+    bottom: 100%;
+  }
+}
