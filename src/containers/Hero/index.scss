@@ -3,10 +3,11 @@
 .enc-hero {
   position: relative;
   text-align: center;
+  padding: 24px 0 120px;
 
   &__title {
     max-width: 760px;
-    margin: 24px auto 0;
+    margin: auto;
     @include font-xl(600);
   }
 
@@ -16,9 +17,9 @@
   }
 
   &__figure {
-    margin-top: 72px;
-    width: 258px;
-    height: 539px;
+    margin-top: 56px;
+    width: 300px;
+    height: 610px;
   }
 
   &__dudes {

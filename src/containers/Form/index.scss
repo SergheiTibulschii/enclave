@@ -1,0 +1,29 @@
+@import '../../assets/css/font';
+@import '../../assets/css/mixins';
+
+.enc-form {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__body {
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    width: 760px;
+    text-align: center;
+    @include font-lg()
+  }
+  &__controls {
+    margin-top: 32px;
+    display: inline-grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 16px;
+  }
+}

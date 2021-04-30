@@ -1,0 +1,39 @@
+@import '../../assets/css/colors';
+@import '../../assets/css/font';
+@import '../../assets/css/mixins';
+
+.enc-input {
+  all: unset;
+  font: inherit;
+  transition: border-color 0.2s ease-out;
+
+  background: rgba($color-primary-b, 1) !important;
+  border: 1px solid #9DA6B9;
+  box-sizing: border-box;
+  border-radius: 48px;
+
+  padding: 12px 24px;
+  width: 384px;
+
+  &:hover, &:focus {
+    border-color: rgba($color-primary-a, 1);
+  }
+
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    @include font-base();
+    color: #9DA6B9;
+    font-weight: 400;
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    @include font-base();
+    color: #9DA6B9;
+    font-weight: 400;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    @include font-base();
+    color: #9DA6B9;
+    font-weight: 400;
+  }
+}
