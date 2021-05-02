@@ -1,11 +1,11 @@
-import React, { memo } from 'react'
+import React, {forwardRef, memo} from 'react'
 import './index.scss'
 
-const Button = ({ onClick, text, isDisabled }) => {
-    
+const Button = forwardRef(({ onClick, text, isDisabled }, ref) => {
+
     return (
-        <button className='enc-btn' onClick={onClick} disabled={isDisabled}>{text}</button>
+        <button ref={ref} className='enc-btn' onClick={onClick} disabled={isDisabled}>{text}</button>
     )
-}
+})
 
 export default memo(Button)

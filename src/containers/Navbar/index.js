@@ -6,21 +6,23 @@ import Logo from "../../components/Logo";
 import Button from "../../components/Button";
 
 const Navbar = () => {
-    const navRef = useRef()
+    const logoRef = useRef()
+    const btnRef = useRef()
 
     useEffect(() => {
-          gsap.from(navRef.current, {
+          gsap.from([logoRef.current, btnRef.current], {
               transform: "translateY(-80px)",
               opacity: 0,
-              duration: 3,
+              duration: 2.5,
+              stagger: 0.2,
               ease: "expo.out",
           })
     }, [])
 
     return (
-        <div ref={navRef} className='enc-navbar'>
-            <Logo />
-            <Button text='Request the app' />
+        <div className='enc-navbar'>
+            <Logo ref={logoRef} />
+            <Button ref={btnRef} text='Request the app' />
         </div>
     )
 }

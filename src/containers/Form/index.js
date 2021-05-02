@@ -13,24 +13,20 @@ const Form = () => {
   const [inputText, setInputText] = useState("");
 
   useEffect(() => {
-    const parallaxTl = gsap.timeline({
+    const trigger = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        scrub: 0.5,
+        start: 'top center'
       },
     });
-    parallaxTl.fromTo(
-      contentRef.current,
-      {
-        transform: "translateY(-50%)",
-      },
-      {
-        transform: "translateY(11%)",
-        duration: 1,
-      },
-      0
-    );
 
+    trigger.from([titleRef.current, controlsRef.current], {
+      y: 120,
+      opacity: 0,
+      duration: 1.5,
+      stagger: 0.15,
+      ease: 'expo.out'
+    });
   }, []);
 
   const handleInputChange = (event) => {

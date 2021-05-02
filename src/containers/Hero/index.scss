@@ -27,33 +27,33 @@
     position: absolute;
     inset: 0;
 
-    &-1 {
+    & > * {
+      display: flex;
       position: absolute;
+      opacity: 0;
+    }
+
+    &-1 {
       top: 128px;
       left: 224px;
     }
     &-2 {
-      position: absolute;
       top: 525px;
       left: 1310px;
     }
     &-3 {
-      position: absolute;
       top: 338px;
       left: 416px;
     }
     &-4 {
-      position: absolute;
       top: 225px;
       left: 1180px;
     }
     &-5 {
-      position: absolute;
       top: 479px;
       left: 1016px;
     }
     &-6 {
-      position: absolute;
       top: 516px;
       left: 245px;
     }
