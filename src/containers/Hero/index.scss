@@ -8,11 +8,13 @@
   &__title {
     max-width: 760px;
     margin: auto;
+    opacity: 0;
     @include font-xl(600);
   }
 
   &__subtitle {
     margin-top: 16px;
+    opacity: 0;
     @include font-md();
   }
 

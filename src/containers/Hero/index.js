@@ -18,9 +18,12 @@ const Hero = () => {
       duration: 1.7,
       ease: "expo.out"
     });
-    gsap.from([subTitleRef.current, titleRef.current], {
+    gsap.fromTo([subTitleRef.current, titleRef.current], {
       transform: "translateY(-60px)",
       opacity: 0,
+    }, {
+      transform: "translateY(0)",
+      opacity: 1,
       duration: 3,
       stagger: 0.17,
       ease: "expo.out",
