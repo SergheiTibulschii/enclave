@@ -2,7 +2,7 @@ import React, { forwardRef, memo, useEffect, useState } from "react";
 import Popper from "../../components/Popper";
 
 const PopperDude = forwardRef(
-  ({ position, src, srcSet, i }, ref) => {
+  ({ src, srcSet, popper, i }, ref) => {
       const [isPopperVisible, setIsPopperVisible] = useState(false)
       useEffect(() => {
           setTimeout(() => {
@@ -19,7 +19,11 @@ const PopperDude = forwardRef(
       >
         <img src={src} srcSet={srcSet} alt="" />
 
-          {isPopperVisible && <Popper position={position}></Popper>}
+          {isPopperVisible && (
+              <Popper position={popper.position}>
+                  <img src={popper.tooltip.x1} srcSet={`${popper.tooltip.x2} 2x`} alt='' />
+              </Popper>
+          )}
       </div>
     );
   }

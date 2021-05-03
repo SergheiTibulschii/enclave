@@ -24,7 +24,9 @@ const Navbar = () => {
     }, [])
 
     const handleRequestClick = () => {
-        scrollbar.scrollIntoView(document.querySelector('.enc-form'))
+        scrollbar.scrollTo(0, 2000, 1000, { easing: function easeInOutSine(x) {
+                return -(Math.cos(Math.PI * x) - 1) / 2;
+            }})
     }
 
     return (

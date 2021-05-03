@@ -26,6 +26,7 @@
 
   &__dudes {
     pointer-events: none;
+    z-index: -1;
     position: absolute;
     inset: 0;
 

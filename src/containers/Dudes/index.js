@@ -15,22 +15,34 @@ import Img6 from "../../assets/dudes/6.png";
 import Img6x2 from "../../assets/dudes/6@2x.png";
 import Img8 from "../../assets/dudes/8.png";
 import Img8x2 from "../../assets/dudes/8@2x.png";
+import Tooltip1 from "../../assets/img/tooltips/tooltip-1.png";
+import Tooltip1x2 from "../../assets/img/tooltips/tooltip-1@2x.png";
+import Tooltip2 from "../../assets/img/tooltips/tooltip-2.png";
+import Tooltip2x2 from "../../assets/img/tooltips/tooltip-2@2x.png";
 import { randomInteger } from "../../components/utils/randomInteger";
 
 const imgs = [
   { x1: Img1, x2: Img1x2 },
   { x1: Img2, x2: Img2x2 },
   { x1: Img3, x2: Img3x2 },
-  { x1: Img4, x2: Img4x2, popper: { position: "bottom" } },
+  {
+    x1: Img4,
+    x2: Img4x2,
+    popper: { position: "bottom", tooltip: { x1: Tooltip1, x2: Tooltip1x2 } },
+  },
   { x1: Img6, x2: Img6x2 },
-  { x1: Img8, x2: Img8x2, popper: { position: "top" } },
+  {
+    x1: Img8,
+    x2: Img8x2,
+    popper: { position: "top", tooltip: { x1: Tooltip2, x2: Tooltip2x2 } },
+  },
 ];
 const staggerOrder = [1, 3, 5, 2, 4, 6];
 const Dudes = () => {
   const ref = useRef({});
   const dudesRef = useRef();
   const containerRef = useRef();
-
+console.log({ containerRef });
   useEffect(() => {
     const elements = staggerOrder.map((v) => ref.current[v]);
 
@@ -52,7 +64,7 @@ const Dudes = () => {
         duration: 1.5,
         stagger: 0.15,
         ease: "back.out(1.4)",
-        delay: 0.8
+        delay: 0.8,
       },
       0
     );
@@ -60,7 +72,7 @@ const Dudes = () => {
     elements
       .map((el) => {
         return {
-          y: randomInteger(15, 35),
+          y: randomInteger(35, 75),
           el,
         };
       })
@@ -72,11 +84,11 @@ const Dudes = () => {
           },
           {
             scrollTrigger: {
-              trigger: containerRef.current,
               scrub: 1,
+              end: "+=5000"
             },
-            y,
-            duration: 1,
+            y: 850,
+            duration: 3,
             delay: 0.3,
           },
           0
@@ -87,11 +99,11 @@ const Dudes = () => {
   }, []);
 
   return (
-    <div ref={dudesRef} className='enc-hero__dudes'>
+    <div ref={dudesRef} className="enc-hero__dudes">
       {imgs.map(({ x1, x2, popper }, i) => {
         return popper ? (
           <PopperDude
-            position={popper.position}
+            popper={popper}
             src={x1}
             srcSet={`${x2} 2x`}
             ref={ref}
