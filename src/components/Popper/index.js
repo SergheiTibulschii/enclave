@@ -15,7 +15,7 @@ const Popper = ({ position = "top", children }) => {
         {
           opacity: 1,
           y: 0,
-          duration: 2.5,
+          duration: 3,
           ease: 'expo.out'
         }
       );

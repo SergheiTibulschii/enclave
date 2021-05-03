@@ -1,8 +1,14 @@
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef, memo, useEffect, useState } from "react";
 import Popper from "../../components/Popper";
 
 const PopperDude = forwardRef(
-  ({ position, src, srcSet, isPopperVisible, i }, ref) => {
+  ({ position, src, srcSet, i }, ref) => {
+      const [isPopperVisible, setIsPopperVisible] = useState(false)
+      useEffect(() => {
+          setTimeout(() => {
+              setIsPopperVisible(true)
+          }, 2600)
+      }, [])
 
     return (
       <div

@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import "./index.scss";
 import gsap from "gsap";
 
@@ -30,7 +30,6 @@ const Dudes = () => {
   const ref = useRef({});
   const dudesRef = useRef();
   const containerRef = useRef();
-  const [isPopperVisible, setIsPopperVisible] = useState();
 
   useEffect(() => {
     const elements = staggerOrder.map((v) => ref.current[v]);
@@ -50,12 +49,10 @@ const Dudes = () => {
       {
         transform: "scale(1)",
         opacity: 1,
-        duration: 0.7,
+        duration: 1.5,
         stagger: 0.15,
         ease: "back.out(1.4)",
-        onComplete() {
-          setIsPopperVisible(true);
-        },
+        delay: 0.8
       },
       0
     );
@@ -64,16 +61,14 @@ const Dudes = () => {
       .map((el) => {
         return {
           y: randomInteger(15, 35),
-          x: randomInteger(5, 8) * (randomInteger(1, 2) === 1 ? -1 : 1),
           el,
         };
       })
-      .forEach(({ y, x, d, el }, i) => {
+      .forEach(({ y, duration, el }, i) => {
         parallaxTl.fromTo(
           el,
           {
             y: 0,
-            x: 0,
           },
           {
             scrollTrigger: {
@@ -81,9 +76,8 @@ const Dudes = () => {
               scrub: 1,
             },
             y,
-            x,
-            duration: 0.4,
-            ease: "back.out(4)",
+            duration: 1,
+            delay: 0.3,
           },
           0
         );
@@ -97,7 +91,6 @@ const Dudes = () => {
       {imgs.map(({ x1, x2, popper }, i) => {
         return popper ? (
           <PopperDude
-            isPopperVisible={isPopperVisible}
             position={popper.position}
             src={x1}
             srcSet={`${x2} 2x`}
