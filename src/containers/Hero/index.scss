@@ -1,5 +1,6 @@
 @import '../../assets/css/font';
 @import '../../assets/css/mixins';
+
 .enc-hero {
   position: relative;
   text-align: center;
@@ -24,38 +25,33 @@
     height: 610px;
   }
 
-  &__dudes {
-    pointer-events: none;
-    z-index: -1;
-    position: absolute;
-    inset: 0;
-
-    & > * {
-      display: flex;
-      position: absolute;
-      opacity: 0;
-    }
+  .enc-dudes {
 
     &-1 {
       top: 128px;
       left: 224px;
     }
+
     &-2 {
       top: 525px;
       left: 1310px;
     }
+
     &-3 {
       top: 338px;
       left: 416px;
     }
+
     &-4 {
       top: 225px;
       left: 1180px;
     }
+
     &-5 {
       top: 479px;
       left: 1016px;
     }
+
     &-6 {
       top: 516px;
       left: 245px;

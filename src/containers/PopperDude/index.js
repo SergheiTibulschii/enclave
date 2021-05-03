@@ -15,7 +15,7 @@ const PopperDude = forwardRef(
         ref={(el) => {
           ref.current[i + 1] = el;
         }}
-        className={`enc-hero__dudes-${i + 1}`}
+        className={`enc-dudes-${i + 1}`}
       >
         <img src={src} srcSet={srcSet} alt="" />
 

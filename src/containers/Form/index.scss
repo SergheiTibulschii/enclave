@@ -1,5 +1,6 @@
 @import '../../assets/css/font';
 @import '../../assets/css/mixins';
+@import '../../components/Badge/index';
 
 .enc-form {
   height: 100vh;
@@ -24,7 +25,16 @@
   &__title {
     width: 760px;
     text-align: center;
-    @include font-lg(bold)
+    @include font-lg(bold);
+
+    &:after {
+      content: 'Beta';
+      display: inline-block;
+      position: relative;
+      top: -35px;
+
+      @extend .enc-badge;
+    }
   }
   &__controls {
     margin-top: 64px;

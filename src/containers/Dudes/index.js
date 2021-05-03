@@ -41,8 +41,7 @@ const staggerOrder = [1, 3, 5, 2, 4, 6];
 const Dudes = () => {
   const ref = useRef({});
   const dudesRef = useRef();
-  const containerRef = useRef();
-console.log({ containerRef });
+
   useEffect(() => {
     const elements = staggerOrder.map((v) => ref.current[v]);
 
@@ -72,11 +71,11 @@ console.log({ containerRef });
     elements
       .map((el) => {
         return {
-          y: randomInteger(35, 75),
+          y: randomInteger(300, 450),
           el,
         };
       })
-      .forEach(({ y, duration, el }, i) => {
+      .forEach(({ y, el }, i) => {
         parallaxTl.fromTo(
           el,
           {
@@ -85,11 +84,10 @@ console.log({ containerRef });
           {
             scrollTrigger: {
               scrub: 1,
-              end: "+=5000"
+              end: '+=5000'
             },
-            y: 850,
+            y: y,
             duration: 3,
-            delay: 0.3,
           },
           0
         );
@@ -99,7 +97,7 @@ console.log({ containerRef });
   }, []);
 
   return (
-    <div ref={dudesRef} className="enc-hero__dudes">
+    <div ref={dudesRef} className="enc-dudes">
       {imgs.map(({ x1, x2, popper }, i) => {
         return popper ? (
           <PopperDude
@@ -113,7 +111,7 @@ console.log({ containerRef });
         ) : (
           <img
             key={x1}
-            className={`enc-hero__dudes-${i + 1}`}
+            className={`enc-dudes-${i + 1}`}
             ref={(el) => (ref.current[i + 1] = el)}
             src={x1}
             srcSet={`${x2} 2x`}

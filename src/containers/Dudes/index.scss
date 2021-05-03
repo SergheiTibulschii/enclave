@@ -1,0 +1,12 @@
+.enc-dudes {
+  pointer-events: none;
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+
+  & > * {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+  }
+}
