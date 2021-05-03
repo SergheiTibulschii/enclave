@@ -2,6 +2,7 @@
 @import '../../assets/css/mixins';
 
 .enc-hero {
+  $hero: &;
   position: relative;
   text-align: center;
   padding: 24px 0 120px;
@@ -25,36 +26,77 @@
     height: 610px;
   }
 
-  .enc-dudes {
+  @at-root {
+    .enc-dudes {
+      $dudes: &;
 
-    &-1 {
-      top: 128px;
-      left: 224px;
-    }
+      #{$dudes} > &__left {
+        & > #{$dudes} {
+          &-1 {
+            top: 22%;
+            left: 17%;
 
-    &-2 {
-      top: 525px;
-      left: 1310px;
-    }
+            @media (min-width: 1024px) {
+              top: 12%;
+              left: 17%;
+            }
+          }
 
-    &-3 {
-      top: 338px;
-      left: 416px;
-    }
+          &-2 {
+            top: 34%;
+            right: 24%;
 
-    &-4 {
-      top: 225px;
-      left: 1180px;
-    }
+            @media (min-width: 1024px) {
+              top: 29%;
+              right: 15%;
+            }
+          }
 
-    &-5 {
-      top: 479px;
-      left: 1016px;
-    }
+          &-3 {
+            top: 62%;
+            left: 36%;
 
-    &-6 {
-      top: 516px;
-      left: 245px;
+            @media (min-width: 1024px) {
+              top: 53%;
+              left: 40%;
+            }
+          }
+        }
+      }
+
+      #{$dudes} > &__right {
+        & > #{$dudes} {
+          &-4 {
+            top: 68%;
+            right: 14%;
+
+            @media (min-width: 1024px) {
+              top: 55%;
+              right: 16%;
+            }
+          }
+
+          &-5 {
+            top: 27%;
+            right: 34%;
+
+            @media (min-width: 1024px) {
+              top: 17%;
+              right: 40%;
+            }
+          }
+
+          &-6 {
+            top: 53%;
+            left: 25%;
+
+            @media (min-width: 1024px) {
+              top: 44%;
+              left: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -4,9 +4,32 @@
   position: absolute;
   inset: 0;
 
-  & > * {
+  &__left > *, &__right > * {
     display: flex;
     position: absolute;
     opacity: 0;
+  }
+
+  &__left, &__right {
+    position: absolute;
+    top: 0;
+    width: 30vw;
+    height: 100%;
+  }
+
+  &__left {
+    left: 0vw;
+
+    @media (min-width: 1440px) {
+      left: 5vw;
+    }
+  }
+
+  &__right {
+    right: 0vw;
+
+    @media (min-width: 1440px) {
+      right: 5vw;
+    }
   }
 }

@@ -13,9 +13,9 @@ const PopperDude = forwardRef(
     return (
       <div
         ref={(el) => {
-          ref.current[i + 1] = el;
+          ref.current[i] = el;
         }}
-        className={`enc-dudes-${i + 1}`}
+        className={`enc-dudes-${i}`}
       >
         <img src={src} srcSet={srcSet} alt="" />
 
