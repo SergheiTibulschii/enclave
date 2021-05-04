@@ -3,6 +3,7 @@
   z-index: -1;
   position: absolute;
   inset: 0;
+  overflow: hidden;
 
   &__left > *, &__right > * {
     display: flex;
