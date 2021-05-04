@@ -55,32 +55,27 @@
       #{$dudes} > &__left {
         & > #{$dudes} {
           &-1 {
-            top: 27%;
-            left: 6%;
+            top: 224px;
+            left: calc(20.5vw - 70px);
 
-            @media (min-width: 900px) {
-              top: 12%;
-              left: 17%;
+            @media (min-width: 500px) {
+              top: 243px;
+              left: calc(23.5vw - 100px);
             }
           }
 
           &-2 {
-            top: 55%;
-            right: calc(30vw + 40px);
-
-            @media (min-width: 900px) {
-              top: 29%;
-              right: 15%;
-            }
+            top: 434px;
+            left: calc(40vw - 140px);
           }
 
           &-3 {
-            top: 87%;
-            left: 32%;
+            top: 800px;
+            left: 10vw;
 
-            @media (min-width: 900px) {
-              top: 53%;
-              left: 40%;
+            @media (min-width: 500px) {
+              top: 638px;
+              left: calc(27vw - 120px);
             }
           }
         }
@@ -89,34 +84,23 @@
       #{$dudes} > &__right {
         & > #{$dudes} {
           &-4 {
-            top: 60%;
-            left: calc(20vw + 50px);
+            top: 795px;
+            right: calc(38vw - 60px);
 
-            @media (min-width: 900px) {
-              top: 55%;
-              left: unset;
-              right: 16%;
+            @media (min-width: 500px) {
+              top: 664px;
+              right: calc(12vw - 60px);
             }
           }
 
           &-5 {
-            top: 90%;
-            right: calc(20vw - 20px);
-
-            @media (min-width: 900px) {
-              top: 17%;
-              right: 40%;
-            }
+            top: 341px;
+            right: calc(26vw - 120px);
           }
 
           &-6 {
-            top: 35%;
-            right: calc(10vw - 40px);
-
-            @media (min-width: 900px) {
-              top: 44%;
-              left: 0;
-            }
+            top: 575px;
+            right: calc(38vw - 120px);
           }
         }
       }

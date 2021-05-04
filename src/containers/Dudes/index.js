@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useRef } from "react";
 import "./index.scss";
-import gsap from "gsap";
+import gsap  from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 import PopperDude from "../PopperDude";
@@ -20,7 +20,7 @@ import Tooltip1 from "../../assets/img/tooltips/tooltip-1.png";
 import Tooltip1x2 from "../../assets/img/tooltips/tooltip-1@2x.png";
 import Tooltip2 from "../../assets/img/tooltips/tooltip-2.png";
 import Tooltip2x2 from "../../assets/img/tooltips/tooltip-2@2x.png";
-import { randomInteger } from "../../components/utils/randomInteger";
+import {createPortal} from "react-dom";
 
 const imgs = [
   { x1: Img1, x2: Img1x2, side: "left" },
@@ -76,7 +76,7 @@ const Dudes = () => {
         elements
           .map((el) => {
             return {
-              y: randomInteger(100, 250),
+              y: gsap.utils.random(100, 175),
               el,
             };
           })
@@ -102,7 +102,7 @@ const Dudes = () => {
         elements
             .map((el) => {
               return {
-                y: 150,
+                y: gsap.utils.random(15, 75),
                 el,
               };
             })
@@ -129,59 +129,62 @@ const Dudes = () => {
     parallaxTl.play();
   }, []);
 
-  return (
-    <div ref={dudesRef} className="enc-dudes">
-      <div className="enc-dudes__left">
-        {imgs
-          .filter(({ side }) => side === "left")
-          .map(({ x1, x2, popper }, i) => {
-            return popper ? (
-              <PopperDude
-                popper={popper}
-                src={x1}
-                srcSet={`${x2} 2x`}
-                ref={ref}
-                key={x1}
-                i={i + 1}
-              />
-            ) : (
-              <img
-                key={x1}
-                className={`enc-dudes-${i + 1}`}
-                ref={(el) => (ref.current[i + 1] = el)}
-                src={x1}
-                srcSet={`${x2} 2x`}
-                alt=""
-              />
-            );
-          })}
-      </div>
-      <div className="enc-dudes__right">
-        {imgs
-          .filter(({ side }) => side === "right")
-          .map(({ x1, x2, popper }, i) => {
-            return popper ? (
-              <PopperDude
-                popper={popper}
-                src={x1}
-                srcSet={`${x2} 2x`}
-                ref={ref}
-                key={x1}
-                i={i + 4}
-              />
-            ) : (
-              <img
-                key={x1}
-                className={`enc-dudes-${i + 4}`}
-                ref={(el) => (ref.current[i + 4] = el)}
-                src={x1}
-                srcSet={`${x2} 2x`}
-                alt=""
-              />
-            );
-          })}
-      </div>
-    </div>
+  return createPortal(
+      (
+          <div ref={dudesRef} className="enc-dudes">
+            <div className="enc-dudes__left">
+              {imgs
+                  .filter(({ side }) => side === "left")
+                  .map(({ x1, x2, popper }, i) => {
+                    return popper ? (
+                        <PopperDude
+                            popper={popper}
+                            src={x1}
+                            srcSet={`${x2} 2x`}
+                            ref={ref}
+                            key={x1}
+                            i={i + 1}
+                        />
+                    ) : (
+                        <img
+                            key={x1}
+                            className={`enc-dudes-${i + 1}`}
+                            ref={(el) => (ref.current[i + 1] = el)}
+                            src={x1}
+                            srcSet={`${x2} 2x`}
+                            alt=""
+                        />
+                    );
+                  })}
+            </div>
+            <div className="enc-dudes__right">
+              {imgs
+                  .filter(({ side }) => side === "right")
+                  .map(({ x1, x2, popper }, i) => {
+                    return popper ? (
+                        <PopperDude
+                            popper={popper}
+                            src={x1}
+                            srcSet={`${x2} 2x`}
+                            ref={ref}
+                            key={x1}
+                            i={i + 4}
+                        />
+                    ) : (
+                        <img
+                            key={x1}
+                            className={`enc-dudes-${i + 4}`}
+                            ref={(el) => (ref.current[i + 4] = el)}
+                            src={x1}
+                            srcSet={`${x2} 2x`}
+                            alt=""
+                        />
+                    );
+                  })}
+            </div>
+          </div>
+      ),
+      document.querySelector('#root')
   );
 };
 

@@ -16,25 +16,13 @@
     top: 0;
     width: 50%;
     height: 100%;
-
-    @media (min-width: 900px) {
-      width: 30vw;
-    }
   }
 
   &__left {
     left: 0vw;
-
-    @media (min-width: 1440px) {
-      left: 5vw;
-    }
   }
 
   &__right {
     right: 0vw;
-
-    @media (min-width: 1440px) {
-      right: 5vw;
-    }
   }
 }
