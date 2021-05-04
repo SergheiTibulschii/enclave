@@ -1,5 +1,6 @@
 import React, {memo, useEffect, useRef} from 'react'
 import gsap from 'gsap'
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import './index.scss'
 import Logo from "../../components/Logo";
@@ -21,6 +22,15 @@ const Navbar = () => {
               stagger: 0.2,
               ease: "expo.out",
           })
+
+        ScrollTrigger.matchMedia({
+            "(min-width: 440px)": function() {
+                btnRef.current.innerText = 'Request the app'
+            },
+            "(max-width: 440px)": function() {
+                btnRef.current.innerText = 'Request'
+            }
+        })
     }, [])
 
     const handleRequestClick = () => {
@@ -32,7 +42,7 @@ const Navbar = () => {
     return (
         <div className='enc-navbar'>
             <Logo ref={logoRef} />
-            <Button onClick={handleRequestClick} ref={btnRef} text='Request the app' />
+            <Button onClick={handleRequestClick} ref={btnRef} />
         </div>
     )
 }

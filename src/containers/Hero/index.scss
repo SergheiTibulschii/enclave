@@ -8,22 +8,44 @@
   padding: 24px 0 120px;
 
   &__title {
-    max-width: 760px;
+    max-width: 85%;
     margin: auto;
     opacity: 0;
-    @include font-xl(600);
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: bold;
+
+    @media (min-width: 440px) {
+      max-width: 440px;
+    }
+
+    @media (min-width: 768px) {
+      max-width: 760px;
+      @include font-xl(600);
+    }
   }
 
   &__subtitle {
-    margin-top: 16px;
+    margin: 16px auto 0;
     opacity: 0;
-    @include font-md();
+    @include font-base();
+    max-width: 73%;
+
+    @media (min-width: 768px) {
+      @include font-md();
+    }
   }
 
   &__figure {
-    margin-top: 56px;
-    width: 300px;
-    height: 610px;
+    margin-top: 32px;
+    width: 208px;
+    height: 425px;
+
+    @media (min-width: 768px) {
+      margin-top: 56px;
+      width: 300px;
+      height: 610px;
+    }
   }
 
   @at-root {
@@ -33,30 +55,30 @@
       #{$dudes} > &__left {
         & > #{$dudes} {
           &-1 {
-            top: 22%;
-            left: 17%;
+            top: 27%;
+            left: 6%;
 
-            @media (min-width: 1024px) {
+            @media (min-width: 900px) {
               top: 12%;
               left: 17%;
             }
           }
 
           &-2 {
-            top: 34%;
-            right: 24%;
+            top: 55%;
+            right: calc(30vw + 40px);
 
-            @media (min-width: 1024px) {
+            @media (min-width: 900px) {
               top: 29%;
               right: 15%;
             }
           }
 
           &-3 {
-            top: 62%;
-            left: 36%;
+            top: 87%;
+            left: 32%;
 
-            @media (min-width: 1024px) {
+            @media (min-width: 900px) {
               top: 53%;
               left: 40%;
             }
@@ -67,30 +89,31 @@
       #{$dudes} > &__right {
         & > #{$dudes} {
           &-4 {
-            top: 68%;
-            right: 14%;
+            top: 60%;
+            left: calc(20vw + 50px);
 
-            @media (min-width: 1024px) {
+            @media (min-width: 900px) {
               top: 55%;
+              left: unset;
               right: 16%;
             }
           }
 
           &-5 {
-            top: 27%;
-            right: 34%;
+            top: 90%;
+            right: calc(20vw - 20px);
 
-            @media (min-width: 1024px) {
+            @media (min-width: 900px) {
               top: 17%;
               right: 40%;
             }
           }
 
           &-6 {
-            top: 53%;
-            left: 25%;
+            top: 35%;
+            right: calc(10vw - 40px);
 
-            @media (min-width: 1024px) {
+            @media (min-width: 900px) {
               top: 44%;
               left: 0;
             }

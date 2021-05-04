@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useRef } from "react";
 import "./index.scss";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 import PopperDude from "../PopperDude";
 import Img1 from "../../assets/dudes/1.png";
@@ -22,20 +23,20 @@ import Tooltip2x2 from "../../assets/img/tooltips/tooltip-2@2x.png";
 import { randomInteger } from "../../components/utils/randomInteger";
 
 const imgs = [
-  { x1: Img1, x2: Img1x2, side: 'left' },
-  { x1: Img2, x2: Img2x2, side: 'right' },
-  { x1: Img3, x2: Img3x2, side: 'left' },
+  { x1: Img1, x2: Img1x2, side: "left" },
+  { x1: Img2, x2: Img2x2, side: "right" },
+  { x1: Img3, x2: Img3x2, side: "left" },
   {
     x1: Img4,
     x2: Img4x2,
-    side: 'right',
+    side: "right",
     popper: { position: "bottom", tooltip: { x1: Tooltip1, x2: Tooltip1x2 } },
   },
-  { x1: Img6, x2: Img6x2, side: 'right' },
+  { x1: Img6, x2: Img6x2, side: "right" },
   {
     x1: Img8,
     x2: Img8x2,
-    side: 'left',
+    side: "left",
     popper: { position: "top", tooltip: { x1: Tooltip2, x2: Tooltip2x2 } },
   },
 ];
@@ -45,7 +46,6 @@ const Dudes = () => {
   const dudesRef = useRef();
 
   useEffect(() => {
-    console.log({ v: ref.current });
     const elements = staggerOrder.map((v) => ref.current[v]);
 
     const parallaxTl = gsap.timeline({
@@ -71,30 +71,60 @@ const Dudes = () => {
       0
     );
 
-    elements
-      .map((el) => {
-        return {
-          y: randomInteger(100, 250),
-          el,
-        };
-      })
-      .forEach(({ y, el }, i) => {
-        parallaxTl.fromTo(
-          el,
-          {
-            y: 0,
-          },
-          {
-            scrollTrigger: {
-              scrub: 1,
-              end: "+=5000",
-            },
-            y: y,
-            duration: 3,
-          },
-          0
-        );
-      });
+    ScrollTrigger.matchMedia({
+      "(min-width: 900px)": function () {
+        elements
+          .map((el) => {
+            return {
+              y: randomInteger(100, 250),
+              el,
+            };
+          })
+          .forEach(({ y, el }, i) => {
+            parallaxTl.fromTo(
+              el,
+              {
+                y: 0,
+              },
+              {
+                scrollTrigger: {
+                  scrub: 1,
+                  end: "+=5000",
+                },
+                y: y,
+                duration: 3,
+              },
+              0
+            );
+          });
+      },
+      "(max-width: 900px)": function() {
+        elements
+            .map((el) => {
+              return {
+                y: 150,
+                el,
+              };
+            })
+            .forEach(({ y, el }, i) => {
+              parallaxTl.fromTo(
+                  el,
+                  {
+                    y: 0,
+                  },
+                  {
+                    scrollTrigger: {
+                      scrub: 1,
+                      end: "+=5000",
+                    },
+                    y: y,
+                    duration: 3,
+                  },
+                  0
+              );
+            });
+      }
+    });
 
     parallaxTl.play();
   }, []);
@@ -102,50 +132,54 @@ const Dudes = () => {
   return (
     <div ref={dudesRef} className="enc-dudes">
       <div className="enc-dudes__left">
-        {imgs.filter(({ side }) => side === "left").map(({ x1, x2, popper }, i) => {
-          return popper ? (
-            <PopperDude
-              popper={popper}
-              src={x1}
-              srcSet={`${x2} 2x`}
-              ref={ref}
-              key={x1}
-              i={i + 1}
-            />
-          ) : (
-            <img
-              key={x1}
-              className={`enc-dudes-${i + 1}`}
-              ref={(el) => (ref.current[i + 1] = el)}
-              src={x1}
-              srcSet={`${x2} 2x`}
-              alt=""
-            />
-          );
-        })}
+        {imgs
+          .filter(({ side }) => side === "left")
+          .map(({ x1, x2, popper }, i) => {
+            return popper ? (
+              <PopperDude
+                popper={popper}
+                src={x1}
+                srcSet={`${x2} 2x`}
+                ref={ref}
+                key={x1}
+                i={i + 1}
+              />
+            ) : (
+              <img
+                key={x1}
+                className={`enc-dudes-${i + 1}`}
+                ref={(el) => (ref.current[i + 1] = el)}
+                src={x1}
+                srcSet={`${x2} 2x`}
+                alt=""
+              />
+            );
+          })}
       </div>
       <div className="enc-dudes__right">
-        {imgs.filter(({ side }) => side === "right").map(({ x1, x2, popper }, i) => {
-          return popper ? (
-            <PopperDude
-              popper={popper}
-              src={x1}
-              srcSet={`${x2} 2x`}
-              ref={ref}
-              key={x1}
-              i={i + 4}
-            />
-          ) : (
-            <img
-              key={x1}
-              className={`enc-dudes-${i + 4}`}
-              ref={(el) => (ref.current[i + 4] = el)}
-              src={x1}
-              srcSet={`${x2} 2x`}
-              alt=""
-            />
-          );
-        })}
+        {imgs
+          .filter(({ side }) => side === "right")
+          .map(({ x1, x2, popper }, i) => {
+            return popper ? (
+              <PopperDude
+                popper={popper}
+                src={x1}
+                srcSet={`${x2} 2x`}
+                ref={ref}
+                key={x1}
+                i={i + 4}
+              />
+            ) : (
+              <img
+                key={x1}
+                className={`enc-dudes-${i + 4}`}
+                ref={(el) => (ref.current[i + 4] = el)}
+                src={x1}
+                srcSet={`${x2} 2x`}
+                alt=""
+              />
+            );
+          })}
       </div>
     </div>
   );

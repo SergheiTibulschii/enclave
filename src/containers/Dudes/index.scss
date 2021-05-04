@@ -13,8 +13,12 @@
   &__left, &__right {
     position: absolute;
     top: 0;
-    width: 30vw;
+    width: 50%;
     height: 100%;
+
+    @media (min-width: 900px) {
+      width: 30vw;
+    }
   }
 
   &__left {

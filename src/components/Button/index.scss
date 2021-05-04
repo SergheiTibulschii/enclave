@@ -5,8 +5,8 @@
   all: unset;
   font: inherit;
   @include font-base();
+  box-sizing: border-box;
 
-  min-width: 120px;
   padding: 12px 24px;
   border-radius: 48px;
   cursor: pointer;
@@ -15,6 +15,11 @@
   transition: background 0.2s ease-out;
   background: rgba($color-primary-a, 1);
   color: rgba($color-primary-b, 1) !important;
+  min-width: 92px;
+
+  @media (min-width: 440px) {
+    min-width: 120px;
+  }
 
   &:hover, &:focus {
     background: rgba($color-accent, 1);

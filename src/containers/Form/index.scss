@@ -23,23 +23,42 @@
   }
 
   &__title {
-    width: 760px;
+    width: 272px;
     text-align: center;
-    @include font-lg(bold);
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    position: relative;
+
+    @media (min-width: 768px) {
+      width: 760px;
+      @include font-lg(bold);
+    }
 
     &:after {
       content: 'Beta';
       display: inline-block;
-      position: relative;
-      top: -35px;
+      position: absolute;
+      top: 80px;
+
+      @media (min-width: 768px) {
+        position: relative;
+        top: -35px;
+      };
 
       @extend .enc-badge;
     }
   }
   &__controls {
-    margin-top: 64px;
+    margin-top: 32px;
     display: inline-grid;
-    grid-template-columns: 1fr auto;
     grid-gap: 16px;
+    max-width: 288px;
+
+    @media (min-width: 768px) {
+      margin-top: 64px;
+      max-width: unset;
+      grid-template-columns: 1fr auto;
+    }
   }
 }

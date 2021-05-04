@@ -13,7 +13,11 @@
   border-radius: 48px;
 
   padding: 12px 24px;
-  width: 384px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 384px;
+  }
 
   &:hover, &:focus {
     border-color: rgba($color-primary-a, 1);
