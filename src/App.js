@@ -2,9 +2,9 @@ import Hero from "./containers/Hero";
 import Form from "./containers/Form";
 import Navbar from "./containers/Navbar";
 import { useEffect, useRef } from "react";
-import { scrollbar } from './scroll'
+import { scrollbar } from "./scroll";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+import Footer from "./containers/Footer";
 
 function App() {
   const appRef = useRef();
@@ -13,9 +13,9 @@ function App() {
     scrollbar.addListener(ScrollTrigger.update);
 
     return () => {
-      scrollbar.removeListener(ScrollTrigger.update)
-      scrollbar.scrollTo(0, 0)
-    }
+      scrollbar.removeListener(ScrollTrigger.update);
+      scrollbar.scrollTo(0, 0);
+    };
   }, []);
 
   return (
@@ -23,6 +23,7 @@ function App() {
       <Navbar />
       <Hero />
       <Form />
+      <Footer />
     </div>
   );
 }

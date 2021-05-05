@@ -15,10 +15,6 @@
     line-height: 48px;
     font-weight: bold;
 
-    @media (min-width: 440px) {
-      max-width: 440px;
-    }
-
     @media (min-width: 768px) {
       max-width: 760px;
       @include font-xl(600);
@@ -29,7 +25,11 @@
     margin: 16px auto 0;
     opacity: 0;
     @include font-base();
-    max-width: 73%;
+    max-width: 240px;
+
+    @media (min-width: 500px) {
+      max-width: 100%;
+    }
 
     @media (min-width: 768px) {
       @include font-md();

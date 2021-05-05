@@ -30,6 +30,10 @@
     font-weight: 600;
     position: relative;
 
+    @media (min-width: 440px) {
+      width: 405px;
+    }
+
     @media (min-width: 768px) {
       width: 760px;
       @include font-lg(bold);
@@ -39,7 +43,6 @@
       content: 'Beta';
       display: inline-block;
       position: absolute;
-      top: 80px;
 
       @media (min-width: 768px) {
         position: relative;
@@ -53,7 +56,7 @@
     margin-top: 32px;
     display: inline-grid;
     grid-gap: 16px;
-    max-width: 288px;
+    min-width: 288px;
 
     @media (min-width: 768px) {
       margin-top: 64px;

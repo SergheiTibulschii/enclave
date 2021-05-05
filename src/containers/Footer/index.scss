@@ -1,0 +1,21 @@
+@import '../../assets/css/font';
+@import '../../assets/css/mixins';
+
+.enc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 0;
+
+  opacity: 0.4;
+
+  & img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__built-by {
+    @include font-sm();
+    margin-left: 8px;
+  }
+}
