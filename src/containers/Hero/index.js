@@ -25,7 +25,7 @@ const Hero = () => {
       transform: "translateY(0)",
       opacity: 1,
       duration: 3,
-      stagger: 0.17,
+      stagger: 0.15,
       ease: "expo.out",
     });
   }, []);

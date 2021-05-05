@@ -40,7 +40,7 @@ const imgs = [
     popper: { position: "top", tooltip: { x1: Tooltip2, x2: Tooltip2x2 } },
   },
 ];
-const staggerOrder = [1, 3, 5, 2, 4, 6];
+const staggerOrder = [1, 2, 6, 4, 5, 3];
 const Dudes = () => {
   const ref = useRef({});
   const dudesRef = useRef();
@@ -63,7 +63,7 @@ const Dudes = () => {
       {
         transform: "scale(1)",
         opacity: 1,
-        duration: 1.5,
+        duration: 1.4,
         stagger: 0.15,
         ease: "back.out(1.4)",
         delay: 0.8,
