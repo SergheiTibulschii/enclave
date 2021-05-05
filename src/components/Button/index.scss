@@ -15,6 +15,7 @@
   transition: background 0.2s ease-out;
   background: rgba($color-primary-a, 1);
   color: rgba($color-primary-b, 1) !important;
+  -webkit-text-fill-color: rgba($color-primary-b, 1) !important;
   min-width: 92px;
 
   @media (min-width: 440px) {
