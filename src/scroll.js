@@ -1,8 +1,10 @@
 import Scrollbar from "smooth-scrollbar";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import DisablePlugin from "./SmoothScrollDisable";
 
 gsap.registerPlugin(ScrollTrigger);
+Scrollbar.use(DisablePlugin);
 
 export const scrollbar = Scrollbar.init(document.body, {
     damping: 0.1,
