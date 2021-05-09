@@ -3,19 +3,3 @@ $text-base: 16px;
 $text-md: 24px;
 $text-lg: 56px;
 $text-xl: 80px;
-
-@font-face {
-  font-family: 'Gilroy';
-  src: local('Gilroy'), url(../fonts/Gilroy-Medium.woff2) format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gilroy';
-  src: local('Gilroy'), url(../fonts/Gilroy-SemiBold.woff2) format('woff2');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
